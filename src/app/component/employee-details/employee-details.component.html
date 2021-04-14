@@ -1,0 +1,59 @@
+<div class="container">
+
+    <h2 class="text-center">Employee Details</h2>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <input type="text" class="form-control" placeholder="Search by name" [(ngModel)]="nameToSearch"
+                (keyup)="search(nameToSearch)">
+
+        </div>
+    </div>
+    <div class="">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th style="cursor: pointer;" (click)="sortData('name')">Employee Name</th>
+                    <th>Department</th>
+                    <th style="cursor: pointer;" (click)="sortData('joining_date')">Joining Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let one of filteredCandidateData || candidateData">
+                    <td>{{one.id}}</td>
+                    <td>{{one.name}}</td>
+                    <td>{{one.department}}</td>
+                    <td>{{one.joining_date}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+<div class="container">
+    <div>
+        <table class="table table-bordered">
+
+            <tr>
+                <th class="">Developement</th>
+                <td>{{departmentCount.Development}}</td>
+            </tr>
+            <tr>
+                <th>Finance</th>
+                <td>{{departmentCount.Finance}}</td>
+            </tr>
+            <tr>
+                <th>HR</th>
+                <td>{{departmentCount.HR}}</td>
+            </tr>
+            <tr>
+                <th>Operations</th>
+                <td>{{departmentCount.Operations}}</td>
+            </tr>
+
+        </table>
+    </div>
+</div>
